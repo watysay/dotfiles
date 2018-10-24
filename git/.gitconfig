@@ -1,0 +1,7 @@
+[user]
+	name = watysay
+	email = sebastien.manic@gmail.com
+[color]
+	ui = true
+[merge]
+	tool = vimdiff3
