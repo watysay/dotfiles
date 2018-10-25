@@ -32,8 +32,6 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 
-
-
 #---------------------------------------------------
 # PROMPT AND COLOR
 #---------------------------------------------------
@@ -131,3 +129,6 @@ export PERL5LIB="/home/seb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
 export PERL_LOCAL_LIB_ROOT="/home/seb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
 export PERL_MB_OPT="--install_base \"/home/seb/perl5\""
 export PERL_MM_OPT="INSTALL_BASE=/home/seb/perl5"
+
+# if need be for VM installations (VMWare)
+[[ -f ~/.bash_video ]] && . ~/.bash_video && set1080p
