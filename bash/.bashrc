@@ -41,7 +41,9 @@ shopt -s checkwinsize
 ## source git prompt data
 # preliminery settings
 export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWCOLORHINTS=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto verbose"
+#export GIT_PS1_SHOWCOLORHINTS=1 #only works when setting PROMPT_COMMAND, not PS1
 # source file - ajout d'une gestion Git dans le PS1
 . /usr/lib/git-core/git-sh-prompt
 
