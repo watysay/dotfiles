@@ -5,3 +5,5 @@
 	ui = true
 [merge]
 	tool = vimdiff3
+[alias]
+	st = status
