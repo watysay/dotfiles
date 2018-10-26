@@ -83,6 +83,9 @@ export GIT_PS1_SHOWUPSTREAM="auto verbose"
 #---------------------------------------------------
 # PROMPT AND COLOR
 #---------------------------------------------------
+# Inspired by Mathias Bynens dotfiles repo
+# https://github.com/mathiasbynens/dotfiles/blob/master/.bash_prompt
+
 # source file - ajout d'une gestion Git dans le PS1
 . /usr/lib/git-core/git-sh-prompt
 
@@ -127,7 +130,7 @@ fi;
 PS1="\[${orange}\]\u@\h"; # username@host
 PS1+="\[${white}\]:";
 PS1+="\[${blue}\]\w"; # working directory full path
-PS1+="\[${green}\] $(__git_ps1 "(%s)")"; # Git repository details
+PS1+='\[${green}\] $(__git_ps1 "(%s)")'; # Git repository details
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
