@@ -9,6 +9,32 @@ case $- in
 esac
 
 
+#---------------------------------------------------
+# PATH
+#---------------------------------------------------
+# export de PATH pour eclipse
+export PATH=~/prog/eclipse/eclipse/eclipse/:$PATH
+# export de PATH pour dossier scripts
+export PATH=~/scripts:$PATH
+export PATH="/home/seb/perl5/bin${PATH:+:${PATH}}"
+
+#---------------------------------------------------
+# ENV SETTINGS
+#---------------------------------------------------
+export ECLIPSE_HOME="~/prog/eclipse/eclipse/eclipse"
+
+# export de CLASSPATH pour le JDBC - driver de connexion Java-MySQL
+export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java-5.1.28.jar
+
+export PERL5LIB="/home/seb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
+export PERL_LOCAL_LIB_ROOT="/home/seb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
+export PERL_MB_OPT="--install_base \"/home/seb/perl5\""
+export PERL_MM_OPT="INSTALL_BASE=/home/seb/perl5"
+
+# export de l'editeur par défaut
+export VISUAL="vim"
+export EDITOR="vim"
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -31,77 +57,9 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-
 #---------------------------------------------------
-# PROMPT AND COLOR
+# COMPLETION
 #---------------------------------------------------
-
-## source git prompt data
-# preliminery settings
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-export GIT_PS1_SHOWUPSTREAM="auto verbose"
-#export GIT_PS1_SHOWCOLORHINTS=1 #only works when setting PROMPT_COMMAND, not PS1
-# source file - ajout d'une gestion Git dans le PS1
-. /usr/lib/git-core/git-sh-prompt
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
-export TERM=xterm-256color
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-256color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    # version precedente, pas de pb visuel sur affichage ligne de commande precedente
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
-	# nouvelle version de test
-    # ajout de __git_ps1 pour gerer la position (master, branch)
-    PS1='\n${debian_chroot:+($debian_chroot)}\[\033[00;34m\][\A]\[\033[00m\] \[\033[00;32m\]\w\[\033[00m\] $(__git_ps1 "(%s)")\$ '
-
-else
-    PS1='${debian_chroot:+($debian_chroot)}\W \$ '
-fi
-unset color_prompt force_color_prompt
-
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -113,24 +71,80 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# export de PATH pour eclipse
-export PATH=~/prog/eclipse/eclipse/eclipse/:$PATH
-export ECLIPSE_HOME="~/prog/eclipse/eclipse/eclipse"
+#---------------------------------------------------
+# PROMPT AND COLOR
+#---------------------------------------------------
+# GIT PS1 settings
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="auto verbose"
+#export GIT_PS1_SHOWCOLORHINTS=1 #only works when setting PROMPT_COMMAND, not PS1
 
-# export de PATH pour dossier scripts
-export PATH=~/scripts:$PATH
+#---------------------------------------------------
+# PROMPT AND COLOR
+#---------------------------------------------------
+# source file - ajout d'une gestion Git dans le PS1
+. /usr/lib/git-core/git-sh-prompt
 
-# export de CLASSPATH pour le JDBC - driver de connexion Java-MySQL
-export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java-5.1.28.jar
+if [[ "$TERM" = "xterm" ]] && [[ -n "$COLORTERM" ]]; then
+  TERM=xterm-256color
+else
+  : # on ne touche pas aux variables
+fi
 
-# export de l'editeur par défaut
-export EDITOR=vi
+# definition des couleurs
+if tput setaf 1 &> /dev/null; then
+	tput sgr0; # reset colors
+	bold=$(tput bold);
+	reset=$(tput sgr0);
+	# Solarized colors, taken from http://git.io/solarized-colors.
+	black=$(tput setaf 0);
+	blue=$(tput setaf 33);
+	cyan=$(tput setaf 37);
+	green=$(tput setaf 64);
+	orange=$(tput setaf 166);
+	purple=$(tput setaf 125);
+	red=$(tput setaf 196);
+	violet=$(tput setaf 61);
+	white=$(tput setaf 15);
+	yellow=$(tput setaf 136);
+else
+	bold='';
+	reset="\e[0m";
+	black="\e[1;30m";
+	blue="\e[1;34m";
+	cyan="\e[1;36m";
+	green="\e[1;32m";
+	orange="\e[1;33m";
+	purple="\e[1;35m";
+	red="\e[1;31m";
+	violet="\e[1;35m";
+	white="\e[1;37m";
+	yellow="\e[1;33m";
+fi;
 
-export PATH="/home/seb/perl5/bin${PATH:+:${PATH}}"
-export PERL5LIB="/home/seb/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-export PERL_LOCAL_LIB_ROOT="/home/seb/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-export PERL_MB_OPT="--install_base \"/home/seb/perl5\""
-export PERL_MM_OPT="INSTALL_BASE=/home/seb/perl5"
+# Set the terminal title and prompt.
+PS1="\[${orange}\]\u@\h"; # username@host
+PS1+="\[${white}\]:";
+PS1+="\[${blue}\]\w"; # working directory full path
+PS1+="\[${green}\] $(__git_ps1 "(%s)")"; # Git repository details
+PS1+="\n";
+PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+export PS1;
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2;
+
+#---------------------------------------------------
+# ALIASES AND FUNCTIONS
+#---------------------------------------------------
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 # if need be for VM installations (VMWare)
 [[ -f ~/.bash_video ]] && . ~/.bash_video && set1080p
