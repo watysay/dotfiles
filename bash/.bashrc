@@ -152,8 +152,8 @@ fi
 #---------------------------------------------------
 # SOURCING OTHER FILES
 #---------------------------------------------------
-for file in "~/.bash_proxy" "~/.bash_video" "~/.ssh-completion"; do
-  [[ -f "${file}" ]] && . "${file}"
+for file in ~/.bash_proxy ~/.bash_video ~/.ssh-completion; do
+  [[ -f ${file} ]] && . ${file}
 done
 
 # Video setting if need be for VM installations (VMWare)
