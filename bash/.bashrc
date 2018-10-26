@@ -149,5 +149,13 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-# if need be for VM installations (VMWare)
-[[ -f ~/.bash_video ]] && . ~/.bash_video && set1080p
+#---------------------------------------------------
+# SOURCING OTHER FILES
+#---------------------------------------------------
+for file in "~/.bash_proxy" "~/.bash_video" "~/.ssh-completion"; do
+  [[ -f "${file}" ]] && . "${file}"
+done
+
+# Video setting if need be for VM installations (VMWare)
+# exec func if exists, if metal : won't do anything
+(type set1080p && set1080p ) &>/dev/null
