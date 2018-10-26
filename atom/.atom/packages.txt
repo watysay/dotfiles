@@ -1,0 +1,5 @@
+atom-ide-ui@0.5.3
+autocomplete-python@1.10.3
+ide-python@0.2.3
+script@3.17.3
+
