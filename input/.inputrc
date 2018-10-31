@@ -1,0 +1,34 @@
+# To source this file:
+# bind -f {thefilename}
+# or : Ctrl-x Ctrl-r
+
+# Meta == "\M", Control == "\C", Esc == "\e"
+
+# ------------------------------------------
+# SETTING VARIABLES
+# ------------------------------------------
+
+# Make Tab autocomplete regardless of filename case
+set completion-ignore-case on
+
+# use meta mode (Alt) : can now set Alt+ ... shortcut
+set convert-meta on
+
+
+# ------------------------------------------
+# SETTING COMMANDS
+# ------------------------------------------
+
+# alternate mappings for "page up" and "page down" to search the history
+"\e[5~": history-search-backward
+"\e[6~": history-search-forward
+
+
+# Insert "$()" around current line
+"\M-a": '\C-a"$(\C-e)"'
+
+# Insert " 2>&1"
+Meta-&: ' 2>&1'
+# Append " | less"
+"\el": '\C-e | less'
+
