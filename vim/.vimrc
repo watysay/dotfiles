@@ -55,7 +55,7 @@ map <c-h> <c-w>h
 
 " easier moving between tabs
 map <Leader>n <esc>:tabprevious<CR>
-map <Leader>m <esc>:tabnext<CR>
+map <Leader>; <esc>:tabnext<CR>
 
 
 " map sort function to a key
@@ -136,7 +136,7 @@ set noswapfile
 " mkdir -p ~/.vim/autoload ~/.vim/bundle ##
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim ##
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-"" call pathogen#infect()
+call pathogen#infect()
 
 
 " ============================================================================
