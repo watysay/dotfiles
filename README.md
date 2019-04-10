@@ -12,7 +12,7 @@ for dir in ${dir_arr[@]}; do
   stow -Rv ${dir}
 done
 
-ln -s dircolors-solarized-master/dircolors.ansi-dark $HOME/.dircolors
+ln -s $(find $PWD -name "dircolors.ansi-dark") $HOME/.dircolors
 ```
 
 # NOTES

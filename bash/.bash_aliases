@@ -7,7 +7,7 @@
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -F'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
 
@@ -20,7 +20,6 @@ fi
 # Aliases - ls
 ##########################################
 alias ll='ls -alF'
-alias ls='ls -F'
 alias la='ls -A'
 alias l='ls -1F'
 alias l.='ls -lAd .* | grep -v /'
