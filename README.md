@@ -15,8 +15,6 @@ done
 ln -s dircolors-solarized-master/dircolors.ansi-dark $HOME/.dircolors
 ```
 
-
-
 # NOTES
 ---------------
 
@@ -30,3 +28,9 @@ https://raw.githubusercontent.com/git/git/v$(git --version | awk '{ print $3 }')
 https://raw.githubusercontent.com/git/git/v$(git --version | awk '{ print $3 }')/contrib/completion/git-completion.bash
 
 and sourcing them in ~/.bashrc should be enough
+
+
+#TODO
+---------------
+
+- [] add apt-get curl
