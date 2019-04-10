@@ -42,13 +42,24 @@ alias ga='git add'
 alias gs='git status'
 alias gd='git diff'
 alias gcm='git commit -m'
-alias gco='git checkout '
+alias go='git checkout '
 
 gac(){
 
   git add $1 && git commit -m "$2"
 
 }
+# add auto-completion for bash aliases to git
+# call __git_complete to alias, linked to 
+# func "_git_"<command in alias>
+# retrieve list :
+# alias | grep git | sed "s/=/ /g; s/'//g" | awk '{print "__git_complete "$2" _git_"$4 }'
+__git_complete ga _git_add
+__git_complete gc _git_commit
+__git_complete gcm _git_commit
+__git_complete gd _git_diff
+__git_complete go _git_checkout
+__git_complete gs _git_status
 
 ##########################################
 # Aliases - grep
