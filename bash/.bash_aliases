@@ -38,6 +38,7 @@ alias supgrade='sudo -E apt-get upgrade'
 ##########################################
 alias gc='git commit'
 alias ga='git add'
+alias gb='git branch'
 alias gs='git status'
 alias gd='git diff'
 alias gcm='git commit -m'
@@ -54,6 +55,7 @@ gac(){
 # retrieve list :
 # alias | grep git | sed "s/=/ /g; s/'//g" | awk '{print "__git_complete "$2" _git_"$4 }'
 __git_complete ga _git_add
+__git_complete gb _git_branch
 __git_complete gc _git_commit
 __git_complete gcm _git_commit
 __git_complete gd _git_diff
