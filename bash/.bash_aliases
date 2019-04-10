@@ -26,6 +26,7 @@ alias l='ls -1F'
 alias l.='ls -lAd .* | grep -v /'
 alias lz='ls -1'
 alias lsp='ls -d1 $PWD/*'
+
 ##########################################
 # Aliases - apt
 ##########################################
@@ -41,12 +42,24 @@ alias ga='git add'
 alias gs='git status'
 alias gd='git diff'
 alias gcm='git commit -m'
+alias gco='git checkout '
 
 gac(){
 
   git add $1 && git commit -m "$2"
 
 }
+
+##########################################
+# Aliases - grep
+##########################################
+grepssh() {
+    local config_ssh=~/.ssh/config
+    grep "$@" "${config_ssh}"
+    unset config_ssh
+
+}
+alias sshgrep=grepssh
 
 ##########################################
 # Aliases - Video
@@ -82,7 +95,15 @@ fi
 ##########################################
 # Aliases - Ansible
 ##########################################
-alias apb='ansible-playbook --ask-vault-pass -i '
+
+apb(){
+  local t=$(date)
+  ansible-playbook --ask-vault-pass -i $@
+  echo "Debut: $t"
+  echo "Fin  : $(date)"
+}
+
+
 
 bootstrap_role(){
   role_name="$1"
