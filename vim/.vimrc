@@ -117,7 +117,7 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 " Settings
 set shiftround
 set expandtab
 set smarttab
-
+set autoindent " newline as same indent as previous
 " Make search case insensitive
 "" set hlsearch
 "" set incsearch
