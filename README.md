@@ -34,3 +34,4 @@ and sourcing them in ~/.bashrc should be enough
 ---------------
 
 - [] add apt-get curl
+### TODO : install git sur nvl machine pr test si git_complete existe
