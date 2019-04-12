@@ -159,3 +159,9 @@ done
 # Video setting if need be for VM installations (VMWare)
 # exec func if exists, if metal : won't do anything
 (type set1080p && set1080p ) &>/dev/null
+
+(
+if type redshift ; then
+    pgrep redshift || redshift -l geoclue2 &
+fi
+) &>/dev/null
