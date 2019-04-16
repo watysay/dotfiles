@@ -1,3 +1,15 @@
+List des plugins a tester:
+airline - change la ligne de statut de vim (couleur par mode,
+  autres infos, ...)
+ale - linter pour python (check les erreurs de syntaxe)
+ctrlp - permet la recherche de fichiers via crtl p (fuzzy finder)
+python-mode - plugins rassemblant divers plugins pour python
+jedi ?
+flake8 ?
+syntastic - syntax checker pour bcp de languages
+
+
+
 Liste des plugins testés:
 
-NERDtree - git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+NERDtree - utile - git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
