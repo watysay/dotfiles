@@ -95,7 +95,9 @@ set number  " show line numbers
 "" set nowrap  " don't automatically wrap on load
 "" set fo-=t   " don't automatically wrap text when typing
 "" set colorcolumn=80
-"" highlight ColorColumn ctermbg=233
+"" highlight ColorColumn ctermbg=22 
+highlight OverLength ctermbg=52 ctermfg=246 guibg=#592929
+match OverLength /\%81v.\+/
 
 
 " easier formatting of paragraphs
