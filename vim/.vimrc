@@ -88,6 +88,10 @@ filetype off
 filetype plugin indent on
 syntax on
 
+" telling vim that sh script are in fact bash
+" remove line for std sh syntax
+" try here-string to test syntax
+let g:is_bash    = 1
 
 " Showing line numbers and length
 set number  " show line numbers
