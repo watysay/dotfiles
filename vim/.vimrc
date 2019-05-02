@@ -75,23 +75,27 @@ map <Leader>; <esc>:tabnext<CR>
 "" au InsertLeave * match ExtraWhitespace /\s\+$/
 
 
-" Color scheme
-" mkdir -p ~/.vim/colors && cd ~/.vim/colors
-" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-set t_Co=256
-colorscheme solarized
-set background=dark
-
 " Enable syntax highlighting
 " You need to reload this file for the change to apply
 filetype off
 filetype plugin indent on
 syntax on
 
+
+" Color scheme
+" mkdir -p ~/.vim/colors && cd ~/.vim/colors
+" wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
+let g:solarized_termcolors=256
+set t_Co=256
+colorscheme solarized
+set background=dark
+
+
 " telling vim that sh script are in fact bash
 " remove line for std sh syntax
 " try here-string to test syntax
 let g:is_bash    = 1
+
 
 " Showing line numbers and length
 set number  " show line numbers
