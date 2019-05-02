@@ -85,10 +85,11 @@ syntax on
 " Color scheme
 " mkdir -p ~/.vim/colors && cd ~/.vim/colors
 " wget -O wombat256mod.vim http://www.vim.org/scripts/download_script.php?src_id=13400
-let g:solarized_termcolors=256
+"" let g:solarized_termcolors=256
 set t_Co=256
-colorscheme solarized
 set background=dark
+colorscheme solarized
+
 
 
 " telling vim that sh script are in fact bash
@@ -146,7 +147,7 @@ set noswapfile
 " mkdir -p ~/.vim/autoload ~/.vim/bundle ##
 " curl -so ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim ##
 " Now you can install any plugin into a .vim/bundle/plugin-name/ folder
-call pathogen#infect()
+"" call pathogen#infect()
 
 
 " ============================================================================
@@ -214,3 +215,4 @@ call pathogen#infect()
 " mkdir -p ~/.vim/ftplugin ##
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492 ##
 "" set nofoldenable
+
