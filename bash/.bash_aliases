@@ -43,6 +43,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gcm='git commit -m'
 alias go='git checkout '
+alias gt='git tag -n'
 
 gac(){
 
