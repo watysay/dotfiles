@@ -31,6 +31,19 @@ wget https://raw.githubusercontent.com/git/git/v$(git --version | awk '{ print $
 (sourcing them in ~/.bashrc should be already done)
 
 
+ajout d'un submodule pour vim
+```
+git submodule add https:\\..../<name> vim/.vim/bundle/<name>
+```
+
+
+ajout de solarized pour MATE terminal:
+```
+git clone https://github.com/cledoux/mate-terminal-colors-solarized.git
+cd mate-terminal-colors-solarized
+./install.sh
+```
+
 #TODO
 ---------------
 
