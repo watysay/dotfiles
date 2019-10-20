@@ -30,8 +30,8 @@ alias lsp='ls -d1 $PWD/*'
 # Aliases - apt
 ##########################################
 alias sinstall='sudo -E apt-get install'
-alias supdate='sudo -E apt-get update'
-alias supgrade='sudo -E apt-get upgrade'
+alias supdate='sudo -E apt-get update -y'
+alias supgrade='sudo -E apt-get upgrade -y'
 
 ##########################################
 # Aliases - Git
