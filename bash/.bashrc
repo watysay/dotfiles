@@ -138,6 +138,10 @@ export PS1;
 PS2="\[${yellow}\]→ \[${reset}\]";
 export PS2;
 
+# useful stuff once colors are defined :
+# printf "${red}\xE2\x9D\x8C${reset} red cross \n"     # prints a red "X"
+# printf "${green}\xE2\x9C\x94${reset} green check \n" # prints a green ok ✔
+
 #---------------------------------------------------
 # ALIASES AND FUNCTIONS
 #---------------------------------------------------

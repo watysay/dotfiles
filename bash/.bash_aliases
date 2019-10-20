@@ -43,6 +43,7 @@ alias gs='git status'
 alias gd='git diff'
 alias gcm='git commit -m'
 alias go='git checkout '
+alias gt='git tag -n'
 
 gac(){
 
@@ -129,11 +130,10 @@ bootstrap_role(){
 }
 
 ansible-shell(){
-  local inventory="$1"
-  local pattern="$2"
-  local command="$3"
+  local pattern="$1"
+  local command="$2"
 
-  if [[ ${inventory} = "-h" ]]; then
+  if [[ ${pattern} = "-h" ]]; then
      echo "Launch shell command on several hosts"
      echo "1st param: inventory file"
      echo "2nd param: pattern to match (hosts list)"
@@ -142,7 +142,8 @@ ansible-shell(){
      echo "Don't forget to quote the parameters !"
 
   else
-    ansible --ask-vault-pass -i "${inventory}" "${pattern}" -m shell -a "${command}"
+    cd /home/smanic/ansible-CRFRO-reference
+    ansible --ask-vault-pass -i main_ansible_inventory_CRFRO "${pattern}" -m shell -a "${command}"
   fi
 }
 
