@@ -17,6 +17,15 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 ##########################################
+# Generic aliases
+##########################################
+alias cls='clear'
+alias virc='vi ~/.bashrc && . ~/.bashrc'
+alias cd..='cd ..'
+alias shutdown_rpi='ssh pi@raspberrypi "sudo shutdown -h +5"'
+alias histo='history | less'
+
+##########################################
 # Aliases - ls
 ##########################################
 alias ll='ls -alF'
@@ -147,15 +156,6 @@ ansible-shell(){
   fi
 }
 
-
-##########################################
-# Generic aliases
-##########################################
-alias cls='clear'
-alias virc='vi ~/.bashrc && . ~/.bashrc'
-alias cd..='cd ..'
-alias shutdown_rpi='ssh pi@raspberrypi "sudo shutdown -h +5"'
-
 ##########################################
 # Generic functions
 ##########################################
@@ -183,4 +183,14 @@ mkdircd() {
 
 }
 
+notifyme() {
+  local head="✔ Task Ready !"
+  local body="$1"
+  local delay=$2
+  (
+  sleep $delay
+  /usr/bin/notify-send -t 0 "$head" "\n${body}\n"
+  /usr/bin/spd-say -r -20 "$body"
+  ) &
 
+}  
