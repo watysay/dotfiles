@@ -6,7 +6,6 @@
 " Automatic reloading of .vimrc
 autocmd! bufwritepost .vimrc source %
 
-
 " Better copy & paste
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
@@ -35,9 +34,9 @@ let mapleader = ","
 
 
 " Quicksave command
-"" noremap <C-Z> :update<CR>
-"" vnoremap <C-Z> <C-C>:update<CR>
-"" inoremap <C-Z> <C-O>:update<CR>
+noremap zz :update<CR>
+vnoremap zz <C-C>:update<CR>
+inoremap zz <C-O>:update<CR>
 
 
 " Quick quit command
@@ -61,6 +60,9 @@ map <Leader>; <esc>:tabnext<CR>
 " map sort function to a key
 "" vnoremap <Leader>s :sort<CR>
 
+" change the way to leave insert mode
+imap jk <Esc>
+imap kj <Esc>
 
 " easier moving of code blocks
 " Try to go into visual mode (v), thenselect several lines of code here and
@@ -91,7 +93,6 @@ set background=dark
 colorscheme solarized
 
 
-
 " telling vim that sh script are in fact bash
 " remove line for std sh syntax
 " try here-string to test syntax
@@ -107,6 +108,25 @@ set number  " show line numbers
 "" highlight ColorColumn ctermbg=22 
 highlight OverLength ctermbg=52 ctermfg=246 guibg=#592929
 match OverLength /\%81v.\+/
+
+" Adding statusline (bottom of screen)
+set laststatus=2
+highlight StatusLine ctermfg=NONE  ctermbg=NONE cterm=NONE
+" Customizing the statusline
+set statusline=%f                           " file name
+set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
+set statusline+=%{&ff}] "file format
+set statusline+=%y      "filetype
+set statusline+=%h      "help file flag
+set statusline+=[%{getbufvar(bufnr('%'),'&mod')?'modified':'saved'}] "modified flag
+set statusline+=%r      "read only flag
+
+set statusline+=\ %=                        " align left
+set statusline+=\ L:%l\ C:%c                " coordinates
+set statusline+=\ Line:%l/%L[%p%%]          " line X of Y [percent of file]
+" Colorizing the statusline when in insert mode
+autocmd InsertEnter * highlight StatusLine ctermfg=black ctermbg=DarkRed
+autocmd InsertLeave * highlight StatusLine ctermfg=NONE  ctermbg=NONE cterm=NONE
 
 
 " easier formatting of paragraphs
@@ -134,7 +154,6 @@ set autoindent " newline as same indent as previous
 "" set incsearch
 "" set ignorecase
 "" set smartcase
-
 
 " Disable stupid backup and swap files - they trigger too many events
 " for file system watchers
