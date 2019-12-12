@@ -1,0 +1,55 @@
+[global_config]
+  always_split_with_profile = True
+  enabled_plugins = TerminatorThemes, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  suppress_multiple_term_dialog = True
+  tab_position = bottom
+  title_font = Ubuntu Mono 10
+  title_transmit_bg_color = "#c85600"
+  window_state = maximise
+[keybindings]
+  group_all = None
+  group_all_toggle = <Alt>a
+  scaled_zoom = <Super>z
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+  [[seb]]
+    [[[child0]]]
+      parent = ""
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 957
+      ratio = 0.5
+      type = HPaned
+    [[[terminal2]]]
+      order = 0
+      parent = child1
+      profile = seb
+      type = Terminal
+      uuid = 174b7577-8bc0-4106-bee2-4c34b38311ed
+    [[[terminal3]]]
+      order = 1
+      parent = child1
+      profile = seb
+      type = Terminal
+      uuid = c62797f3-aa51-4059-ac3b-7439d36ba1c2
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+  [[seb]]
+    background_color = "#002b36"
+    background_image = None
+    copy_on_selection = True
+    font = Ubuntu Mono 12
+    foreground_color = "#839496"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    use_system_font = False
