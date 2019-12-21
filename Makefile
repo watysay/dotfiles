@@ -17,12 +17,15 @@ install: prepare_install
 	@if [ ! -L ${HOME}/.bashrc ];       then ln -s ${CURDIR}/bashrc         ~/.bashrc        ;fi
 	@if [ ! -L ${HOME}/.bash_aliases ]; then ln -s ${CURDIR}/bash_aliases   ~/.bash_aliases  ;fi
 	@if [ ! -L ${HOME}/.bash_video ];   then ln -s ${CURDIR}/bash_video     ~/.bash_video    ;fi
+	@if [ ! -L ${HOME}/.gitconfig ];    then ln -s ${CURDIR}/gitconfig      ~/.gitconfig     ;fi
 	@if [ ! -L ${HOME}/.dircolors ];    then ln -s ${CURDIR}/dircolors      ~/.dircolors     ;fi
 	@if [ ! -L ${HOME}/.inputrc ];      then ln -s ${CURDIR}/inputrc        ~/.inputrc       ;fi
 	@if [ ! -L ${HOME}/.vim ];          then ln -s ${CURDIR}/vim            ~/.vim           ;fi
+	@if [ ! -L ${HOME}/.vimrc ];        then ln -s ${CURDIR}/vimrc          ~/.vimrc         ;fi
+
 
 	# Create ~/.config folder if needed
- 	@if [ ! -d ${HOME}/.config ]; then mkdir ~/.config; fi
+	@if ! [ -d ~/.config ]; then mkdir ~/.config; fi
 	
 	# Install config applications
 	@if [ ! -L ${HOME}/.config/terminator ]; then ln -s ${CURDIR}/config/terminator ~/.config/terminator; fi 
