@@ -156,7 +156,7 @@ fi
 #---------------------------------------------------
 # SOURCING OTHER FILES
 #---------------------------------------------------
-for file in ~/.bash_proxy ~/.bash_video ~/.ssh-completion; do
+for file in ~/.bash_proxy ~/.bash_video ~/.bash_envs ~/.ssh-completion; do
   [[ -f ${file} ]] && . ${file}
 done
 
@@ -169,3 +169,4 @@ if type redshift ; then
     pgrep redshift || redshift -l geoclue2 &
 fi
 ) &>/dev/null
+

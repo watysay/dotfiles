@@ -10,8 +10,8 @@ autocmd! bufwritepost .vimrc source %
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
-"" set pastetoggle=<F2>
-"" set clipboard=unnamed
+set pastetoggle=<F2>
+set clipboard=unnamed
 
 
 " Mouse and backspace
@@ -90,8 +90,8 @@ syntax on
 "" let g:solarized_termcolors=256
 set t_Co=256
 set background=dark
-colorscheme solarized
-
+"colorscheme solarized
+colorscheme default
 
 " telling vim that sh script are in fact bash
 " remove line for std sh syntax
