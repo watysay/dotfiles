@@ -84,6 +84,13 @@ grepssh() {
 alias sshgrep=grepssh
 
 ##########################################
+# Aliases - gcloud cli
+##########################################
+alias gci='gcloud compute instances'
+alias gssh='gcloud compute ssh'
+
+
+##########################################
 # Aliases - Video
 ##########################################
 

@@ -170,3 +170,4 @@ if type redshift ; then
 fi
 ) &>/dev/null
 
+bind 'set bell-style none'
