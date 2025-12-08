@@ -29,6 +29,10 @@ install: prepare_install
 	
 	# Install config applications
 	@if [ ! -L ${HOME}/.config/terminator ]; then ln -s ${CURDIR}/config/terminator ~/.config/terminator; fi 
+	
+	# Install config nvim
+	@if [ ! -L ${HOME}/.config/nvim ]; then ln -s ${CURDIR}/config/nvim ~/.config/nvim; fi 
+
 
 prepare_install:
 	@if [ -f ${HOME}/.bashrc ] && [ ! -L ${HOME}/.bashrc ]; then rm ${HOME}/.bashrc; fi
