@@ -10,7 +10,9 @@ autocmd! bufwritepost .vimrc source %
 " When you want to paste large blocks of code into vim, press F2 before you
 " paste. At the bottom you should see ``-- INSERT (paste) --``.
 
-set pastetoggle=<F2>
+if !has('nvim')
+  set pastetoggle=<F2>
+endif
 set clipboard=unnamed
 
 
@@ -53,8 +55,20 @@ map <c-h> <c-w>h
 
 
 " easier moving between tabs
-map <Leader>n <esc>:tabprevious<CR>
-map <Leader>; <esc>:tabnext<CR>
+"" map <Leader>n <esc>:tabprevious<CR>
+"" map <Leader>; <esc>:tabnext<CR>
+
+""""""""""""" BUFFER """""""""""""
+" open new buffer (new file)
+" :e[dit] file - edit a file in a new buffer 
+
+" easier moving buffer !
+" adding ! to force change w/o save
+map <Leader>n <esc>:bprevious!<CR>
+map <Leader>; <esc>:bnext!<CR>
+
+" Closing current buffer
+" :bd
 
 
 " map sort function to a key
@@ -91,7 +105,7 @@ syntax on
 set t_Co=256
 set background=dark
 "colorscheme solarized
-colorscheme default
+colorscheme industry
 
 " telling vim that sh script are in fact bash
 " remove line for std sh syntax
@@ -111,7 +125,7 @@ match OverLength /\%81v.\+/
 
 " Adding statusline (bottom of screen)
 set laststatus=2
-highlight StatusLine ctermfg=NONE  ctermbg=NONE cterm=NONE
+highlight StatusLine ctermfg=black ctermbg=white cterm=NONE
 " Customizing the statusline
 set statusline=%f                           " file name
 set statusline+=[%{strlen(&fenc)?&fenc:'none'}, "file encoding
@@ -126,7 +140,7 @@ set statusline+=\ L:%l\ C:%c                " coordinates
 set statusline+=\ Line:%l/%L[%p%%]          " line X of Y [percent of file]
 " Colorizing the statusline when in insert mode
 autocmd InsertEnter * highlight StatusLine ctermfg=black ctermbg=DarkRed
-autocmd InsertLeave * highlight StatusLine ctermfg=NONE  ctermbg=NONE cterm=NONE
+autocmd InsertLeave * highlight StatusLine ctermfg=black  ctermbg=white cterm=NONE
 
 
 " easier formatting of paragraphs
@@ -235,3 +249,5 @@ set noswapfile
 " wget -O ~/.vim/ftplugin/python_editing.vim http://www.vim.org/scripts/download_script.php?src_id=5492 ##
 "" set nofoldenable
 
+set visualbell
+set t_vb=

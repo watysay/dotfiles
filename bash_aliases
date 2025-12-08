@@ -23,7 +23,7 @@ alias cls='clear'
 alias virc='vi ~/.bashrc && . ~/.bashrc'
 alias cd..='cd ..'
 alias shutdown_rpi='ssh pi@raspberrypi "sudo shutdown -h +5"'
-alias histo='history | less'
+#alias histo='history | less'
 
 ##########################################
 # Aliases - ls
@@ -82,6 +82,17 @@ grepssh() {
 
 }
 alias sshgrep=grepssh
+
+##########################################
+# Aliases - gcloud cli
+##########################################
+alias gci='gcloud compute instances'
+alias gssh='gcloud compute ssh'
+
+##########################################
+# Aliases - generic
+##########################################
+alias todo="grep --exclude-dir=.venv -r '#TODO'"
 
 ##########################################
 # Aliases - Video
@@ -194,3 +205,12 @@ notifyme() {
   ) &
 
 }  
+
+histo(){
+  if [[ $1 == '' ]]
+  then
+    history | less
+  else
+    history | grep -i "$1"
+  fi
+}

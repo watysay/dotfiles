@@ -32,3 +32,4 @@ Meta-&: ' 2>&1'
 # Append " | less"
 "\el": '\C-e | less'
 
+set bell-style none
