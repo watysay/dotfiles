@@ -11,8 +11,8 @@
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
-# use meta mode (Alt) : can now set Alt+ ... shortcut
-set convert-meta on
+# OFF or not accents - use meta mode (Alt) : can now set Alt+ ... shortcut
+set convert-meta off
 
 
 # ------------------------------------------
